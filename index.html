@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+
+
+	</head>
+	<body>
+		<div id='buttons'>
+			<button type='button' data-choice='1'>kamen </button>
+			<button type='button' data-choice='2'>nozhn </button>
+			<button type='button' data-choice='3'>bumaga</button>
+
+		</div>
+
+		<div>
+			<output name="choice">
+			</output>
+			<output name="result">
+			</output>
+		</div>
+
+		<script>
+		function getRandomChoice(){
+			return Math.floor(Math.random() * 3)+1;
+;
+		}
+
+		function GetWinner(x,y){
+
+			switch (x-y){
+				case 	0: 	{var u='Nichya'; break;}
+				case -1: 	{var u='Winner'; break;}
+				case 	2: 	{var u='Winner'; break;}
+				case 	1: 	{var u='Looser'; break;}
+				case -2: 	{var u='Looser'; break;}
+			}
+
+
+		//	if (x==y) {var u='Nichya';}
+		//	else if (){};
+
+			return u;
+		}
+
+
+
+			var buttons = document.querySelector('#buttons');
+
+			buttons.addEventListener('click',function(e){
+				var choice = e.target.dataset.choice;
+
+				console.log(e);
+
+
+				var computerChoice = getRandomChoice();
+				var Elements=['kamen','nozhn','bumaga'];
+
+				console.log(Elements[computerChoice-1]);
+				document.querySelector('[name="choice"]').textContent = Elements[computerChoice-1];
+
+			//	document.querySelector('[name="result"]').textContent = GetWinner(choice,computerChoice);
+
+				document.querySelector('[name="result"]').textContent = GetWinner(choice,computerChoice);
+
+		}
+
+
+
+				);
+
+
+		</script>
+
+
+	</body>
+
+
+</html>
